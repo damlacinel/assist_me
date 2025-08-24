@@ -1,0 +1,1049 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD685E822D85BF3A00CC90C5 /* MemorySupport_2 Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BD685E752D85BF3800CC90C5 /* MemorySupport_2 Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BDA8E14D2D4513FA00208719 /* Memory Support Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BDA8E14C2D4513FA00208719 /* Memory Support Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD685E802D85BF3A00CC90C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA8E1402D4513FA00208719 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD685E742D85BF3800CC90C5;
+			remoteInfo = "MemorySupport_2 Watch App";
+		};
+		BDA8E14E2D4513FA00208719 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA8E1402D4513FA00208719 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA8E14B2D4513FA00208719;
+			remoteInfo = "Memory Support Watch App";
+		};
+		BDA8E15F2D4513FF00208719 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA8E1402D4513FA00208719 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA8E14B2D4513FA00208719;
+			remoteInfo = "Memory Support Watch App";
+		};
+		BDA8E1692D4513FF00208719 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA8E1402D4513FA00208719 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA8E14B2D4513FA00208719;
+			remoteInfo = "Memory Support Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BD685E832D85BF3A00CC90C5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BD685E822D85BF3A00CC90C5 /* MemorySupport_2 Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1752D4513FF00208719 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BDA8E14D2D4513FA00208719 /* Memory Support Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BD685E752D85BF3800CC90C5 /* MemorySupport_2 Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemorySupport_2 Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9A8F562D844D0300B58397 /* WatchCompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA61D5B2D84684C00C568E8 /* WatchCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA8E1462D4513FA00208719 /* Memory Support.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memory Support.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA8E14C2D4513FA00208719 /* Memory Support Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memory Support Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA8E15E2D4513FF00208719 /* Memory Support Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Memory Support Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA8E1682D4513FF00208719 /* Memory Support Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Memory Support Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BD685E882D85BF7900CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/Preview Assets.xcassets",
+			);
+			target = BD685E742D85BF3800CC90C5 /* MemorySupport_2 Watch App */;
+		};
+		BD685E892D85BF8A00CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = BDA8E1452D4513FA00208719 /* Memory Support */;
+		};
+		BD685E8A2D85C07900CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/Preview Assets.xcassets",
+			);
+			target = BDA61D5A2D84684C00C568E8 /* WatchCompanion */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BD685E762D85BF3800CC90C5 /* MemorySupport_2 Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (BD685E892D85BF8A00CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, BD685E8A2D85C07900CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, BD685E882D85BF7900CC90C5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "MemorySupport_2 Watch App"; sourceTree = "<group>"; };
+		BDA61D5C2D84684C00C568E8 /* WatchCompanion */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = WatchCompanion; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD685E722D85BF3800CC90C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A8F532D844D0300B58397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA61D582D84684C00C568E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1492D4513FA00208719 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E15B2D4513FF00208719 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1652D4513FF00208719 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDA8E13F2D4513FA00208719 = {
+			isa = PBXGroup;
+			children = (
+				BDA61D5C2D84684C00C568E8 /* WatchCompanion */,
+				BD685E762D85BF3800CC90C5 /* MemorySupport_2 Watch App */,
+				BDA8E1472D4513FA00208719 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDA8E1472D4513FA00208719 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDA8E1462D4513FA00208719 /* Memory Support.app */,
+				BDA8E14C2D4513FA00208719 /* Memory Support Watch App.app */,
+				BDA8E15E2D4513FF00208719 /* Memory Support Watch AppTests.xctest */,
+				BDA8E1682D4513FF00208719 /* Memory Support Watch AppUITests.xctest */,
+				BD9A8F562D844D0300B58397 /* WatchCompanionApp.app */,
+				BDA61D5B2D84684C00C568E8 /* WatchCompanion.app */,
+				BD685E752D85BF3800CC90C5 /* MemorySupport_2 Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD685E742D85BF3800CC90C5 /* MemorySupport_2 Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD685E862D85BF3A00CC90C5 /* Build configuration list for PBXNativeTarget "MemorySupport_2 Watch App" */;
+			buildPhases = (
+				BD685E712D85BF3800CC90C5 /* Sources */,
+				BD685E722D85BF3800CC90C5 /* Frameworks */,
+				BD685E732D85BF3800CC90C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BD685E762D85BF3800CC90C5 /* MemorySupport_2 Watch App */,
+			);
+			name = "MemorySupport_2 Watch App";
+			packageProductDependencies = (
+			);
+			productName = "MemorySupport_2 Watch App";
+			productReference = BD685E752D85BF3800CC90C5 /* MemorySupport_2 Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD9A8F552D844D0300B58397 /* WatchCompanionApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9A8F612D844D0400B58397 /* Build configuration list for PBXNativeTarget "WatchCompanionApp" */;
+			buildPhases = (
+				BD9A8F522D844D0300B58397 /* Sources */,
+				BD9A8F532D844D0300B58397 /* Frameworks */,
+				BD9A8F542D844D0300B58397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchCompanionApp;
+			packageProductDependencies = (
+			);
+			productName = WatchCompanionApp;
+			productReference = BD9A8F562D844D0300B58397 /* WatchCompanionApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDA61D5A2D84684C00C568E8 /* WatchCompanion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA61D662D84684D00C568E8 /* Build configuration list for PBXNativeTarget "WatchCompanion" */;
+			buildPhases = (
+				BDA61D572D84684C00C568E8 /* Sources */,
+				BDA61D582D84684C00C568E8 /* Frameworks */,
+				BDA61D592D84684C00C568E8 /* Resources */,
+				BD685E832D85BF3A00CC90C5 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD685E812D85BF3A00CC90C5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BDA61D5C2D84684C00C568E8 /* WatchCompanion */,
+			);
+			name = WatchCompanion;
+			packageProductDependencies = (
+			);
+			productName = WatchCompanion;
+			productReference = BDA61D5B2D84684C00C568E8 /* WatchCompanion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDA8E1452D4513FA00208719 /* Memory Support */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA8E1762D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support" */;
+			buildPhases = (
+				BDA8E1442D4513FA00208719 /* Resources */,
+				BDA8E1752D4513FF00208719 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDA8E14F2D4513FA00208719 /* PBXTargetDependency */,
+			);
+			name = "Memory Support";
+			productName = "Memory Support";
+			productReference = BDA8E1462D4513FA00208719 /* Memory Support.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		BDA8E14B2D4513FA00208719 /* Memory Support Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA8E1722D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch App" */;
+			buildPhases = (
+				BDA8E1482D4513FA00208719 /* Sources */,
+				BDA8E1492D4513FA00208719 /* Frameworks */,
+				BDA8E14A2D4513FA00208719 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Memory Support Watch App";
+			productName = "Memory Support Watch App";
+			productReference = BDA8E14C2D4513FA00208719 /* Memory Support Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDA8E15D2D4513FF00208719 /* Memory Support Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA8E1792D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch AppTests" */;
+			buildPhases = (
+				BDA8E15A2D4513FF00208719 /* Sources */,
+				BDA8E15B2D4513FF00208719 /* Frameworks */,
+				BDA8E15C2D4513FF00208719 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDA8E1602D4513FF00208719 /* PBXTargetDependency */,
+			);
+			name = "Memory Support Watch AppTests";
+			productName = "Memory Support Watch AppTests";
+			productReference = BDA8E15E2D4513FF00208719 /* Memory Support Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDA8E1672D4513FF00208719 /* Memory Support Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA8E17C2D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch AppUITests" */;
+			buildPhases = (
+				BDA8E1642D4513FF00208719 /* Sources */,
+				BDA8E1652D4513FF00208719 /* Frameworks */,
+				BDA8E1662D4513FF00208719 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDA8E16A2D4513FF00208719 /* PBXTargetDependency */,
+			);
+			name = "Memory Support Watch AppUITests";
+			productName = "Memory Support Watch AppUITests";
+			productReference = BDA8E1682D4513FF00208719 /* Memory Support Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDA8E1402D4513FA00208719 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					BD685E742D85BF3800CC90C5 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					BD9A8F552D844D0300B58397 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					BDA61D5A2D84684C00C568E8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					BDA8E1452D4513FA00208719 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					BDA8E14B2D4513FA00208719 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					BDA8E15D2D4513FF00208719 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = BDA8E14B2D4513FA00208719;
+					};
+					BDA8E1672D4513FF00208719 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = BDA8E14B2D4513FA00208719;
+					};
+				};
+			};
+			buildConfigurationList = BDA8E1432D4513FA00208719 /* Build configuration list for PBXProject "Memory Support" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDA8E13F2D4513FA00208719;
+			productRefGroup = BDA8E1472D4513FA00208719 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDA8E1452D4513FA00208719 /* Memory Support */,
+				BDA8E14B2D4513FA00208719 /* Memory Support Watch App */,
+				BDA8E15D2D4513FF00208719 /* Memory Support Watch AppTests */,
+				BDA8E1672D4513FF00208719 /* Memory Support Watch AppUITests */,
+				BD9A8F552D844D0300B58397 /* WatchCompanionApp */,
+				BDA61D5A2D84684C00C568E8 /* WatchCompanion */,
+				BD685E742D85BF3800CC90C5 /* MemorySupport_2 Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD685E732D85BF3800CC90C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A8F542D844D0300B58397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA61D592D84684C00C568E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1442D4513FA00208719 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E14A2D4513FA00208719 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E15C2D4513FF00208719 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1662D4513FF00208719 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD685E712D85BF3800CC90C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A8F522D844D0300B58397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA61D572D84684C00C568E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1482D4513FA00208719 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E15A2D4513FF00208719 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA8E1642D4513FF00208719 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD685E812D85BF3A00CC90C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD685E742D85BF3800CC90C5 /* MemorySupport_2 Watch App */;
+			targetProxy = BD685E802D85BF3A00CC90C5 /* PBXContainerItemProxy */;
+		};
+		BDA8E14F2D4513FA00208719 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA8E14B2D4513FA00208719 /* Memory Support Watch App */;
+			targetProxy = BDA8E14E2D4513FA00208719 /* PBXContainerItemProxy */;
+		};
+		BDA8E1602D4513FF00208719 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA8E14B2D4513FA00208719 /* Memory Support Watch App */;
+			targetProxy = BDA8E15F2D4513FF00208719 /* PBXContainerItemProxy */;
+		};
+		BDA8E16A2D4513FF00208719 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA8E14B2D4513FA00208719 /* Memory Support Watch App */;
+			targetProxy = BDA8E1692D4513FF00208719 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BD685E842D85BF3A00CC90C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MemorySupport_2 Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MemorySupport-2-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MemorySupport_2;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"This app requires Bluetooth access to connect to Bluetooth beacons.\"";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.damlacinel.WatchCompanion;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damlacinel.WatchCompanion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		BD685E852D85BF3A00CC90C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MemorySupport_2 Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MemorySupport-2-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MemorySupport_2;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"This app requires Bluetooth access to connect to Bluetooth beacons.\"";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.damlacinel.WatchCompanion;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damlacinel.WatchCompanion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		BD9A8F622D844D0400B58397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCompanionApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchCompanionApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = " com.apple.product-type.application";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD9A8F632D844D0400B58397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCompanionApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchCompanionApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = " com.apple.product-type.application";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDA61D672D84684D00C568E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "“We need access to your photo library to select a photo.”";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damlacinel.WatchCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDA61D682D84684D00C568E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "“We need access to your photo library to select a photo.”";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damlacinel.WatchCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDA8E1702D4513FF00208719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDA8E1712D4513FF00208719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		BDA8E1732D4513FF00208719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Memory Support Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Memory Support Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Memory Support";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		BDA8E1742D4513FF00208719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Memory Support Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Memory Support Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Memory Support";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		BDA8E1772D4513FF00208719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Memory Support";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BDA8E1782D4513FF00208719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Memory Support";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDA8E17A2D4513FF00208719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory Support Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Memory Support Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		BDA8E17B2D4513FF00208719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memory Support Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Memory Support Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		BDA8E17D2D4513FF00208719 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Memory Support Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		BDA8E17E2D4513FF00208719 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.damlacinel.Memory-Support-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Memory Support Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD685E862D85BF3A00CC90C5 /* Build configuration list for PBXNativeTarget "MemorySupport_2 Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD685E842D85BF3A00CC90C5 /* Debug */,
+				BD685E852D85BF3A00CC90C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9A8F612D844D0400B58397 /* Build configuration list for PBXNativeTarget "WatchCompanionApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9A8F622D844D0400B58397 /* Debug */,
+				BD9A8F632D844D0400B58397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA61D662D84684D00C568E8 /* Build configuration list for PBXNativeTarget "WatchCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA61D672D84684D00C568E8 /* Debug */,
+				BDA61D682D84684D00C568E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA8E1432D4513FA00208719 /* Build configuration list for PBXProject "Memory Support" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA8E1702D4513FF00208719 /* Debug */,
+				BDA8E1712D4513FF00208719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA8E1722D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA8E1732D4513FF00208719 /* Debug */,
+				BDA8E1742D4513FF00208719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA8E1762D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA8E1772D4513FF00208719 /* Debug */,
+				BDA8E1782D4513FF00208719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA8E1792D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA8E17A2D4513FF00208719 /* Debug */,
+				BDA8E17B2D4513FF00208719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA8E17C2D4513FF00208719 /* Build configuration list for PBXNativeTarget "Memory Support Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA8E17D2D4513FF00208719 /* Debug */,
+				BDA8E17E2D4513FF00208719 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDA8E1402D4513FA00208719 /* Project object */;
+}
