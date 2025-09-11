@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-/// FireworksAnimationView, asset catalog’daki resim kareleriyle animasyon oluşturur.
+//FireworksAnimationView
+//>> Creates a frame-based animation using images from the asset catalog
 struct FireworksAnimationView: View {
     @State private var currentFrame = 0
+    @State private var timer: Timer?
+    
     private let frames = ["fireworks-0", "fireworks-4", "fireworks-8", "fireworks-12",
                           "fireworks-16", "fireworks-20", "fireworks-24", "fireworks-28",
                           "fireworks-32", "fireworks-36", "fireworks-40", "fireworks-44"]
@@ -23,34 +26,42 @@ struct FireworksAnimationView: View {
             .onAppear {
                 startAnimation()
             }
+            .onDisappear(){
+                stopAnimation()
+            }
     }
     
+    //Runs the animation by cycling through frames on a timer
     private func startAnimation() {
-        Timer.scheduledTimer(withTimeInterval: animationDuration / Double(frames.count), repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: animationDuration / Double(frames.count), repeats: true) { timer in
             currentFrame = (currentFrame + 1) % frames.count
         }
     }
+    
+    private func stopAnimation(){
+        timer?.invalidate()
+        timer = nil
+    }
 }
 
-/// Genel olarak kullanılacak TaskCompletionView.
-/// onContinue closure’ı, tamamlandıktan sonra hangi view'in gösterileceğini belirler.
+//TaskCompletionView
+//>> Generic completion screen with background animation and a continue action button
 struct TaskCompletionView<NextView: View>: View {
     let onContinue: () -> NextView
 
     var body: some View {
         ZStack {
-            // Arka planda animasyon: Fireworks
+           //Background animation >> Fireworks (similarity feeling)
             FireworksAnimationView()
             
-            // Üzerine bindirilmiş içerik
             VStack(spacing: 20) {
-                Text("Great job!")
+                Text("Great job!") //motivation aspect here
                     .font(.headline)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
-                // Continue butonunu doğrudan NavigationLink içerisine alıyoruz.
+                //Continue buttob as NavigationLink
                 NavigationLink(destination: onContinue()) {
                     Text("Continue")
                         .font(.system(size: 14))
