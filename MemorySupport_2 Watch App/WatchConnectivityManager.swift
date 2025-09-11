@@ -9,8 +9,9 @@ import SwiftUI
 import WatchConnectivity
 import UIKit
 
-// MARK: - WatchConnectivityManager (WatchOS)
-class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
+// MARK: - WatchConnectivityManager (watchOS)
+// >> Singleton class to manage data exchange with iOS via WCSession
+final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchConnectivityManager()
     
     @Published var receivedImage: [UIImage] = []
@@ -24,6 +25,8 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
+    // MARK: - WCSessionDelegate
+    
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
@@ -34,7 +37,8 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+    func session(_ session: WCSession,
+                 didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Watch: Received application context: \(applicationContext)")
         if let base64String = applicationContext["imageBase64"] as? String,
            let imageData = Data(base64Encoded: base64String),
@@ -48,7 +52,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    // Eğer sendMessage ile gönderim yapılırsa:
+    // MARK: - Optional message handling
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         print("Watch: Received message: \(message)")
     }
