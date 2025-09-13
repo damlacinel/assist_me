@@ -85,7 +85,8 @@ struct ConnectFourView: View {
     @State private var game = ConnectFourGame()
     @State private var showAlert = false
     @State private var alertMessage = ""
-    // Görev durumlarını tutan state; burada örnek değerler veriliyor
+    
+    // Stores the task states; example values are given here
     @State private var completedTasks: [String: Bool] = [
         "Complete Clock Construction in Memory Games!": true,
         "Complete PAL Test in Memory Games!": false,
@@ -95,13 +96,13 @@ struct ConnectFourView: View {
         "Complete the weekly MMSE Test!": false
     ]
     
-    // Yeni state'ler: Giriş ekranı ve help butonu
+    // New states: entry screen and help/task/completion sheets
     @State private var gameStarted: Bool = false
     @State private var showHelp: Bool = false
     @State private var showCompletionSheet: Bool = false
     @State private var showTasks: Bool = false
     
-    // Computed property: tamamlanan disk sayısı
+    // Computed property: number of completed disks
     var completedDisks: Int {
         completedTasks.values.filter { $0 }.count
     }
@@ -109,14 +110,14 @@ struct ConnectFourView: View {
     var body: some View {
         GeometryReader { geometry in
             if !gameStarted {
-                // Giriş Ekranı
+                // Entry Screen
                 ScrollView {
                     VStack(spacing: 20) {
                         Text("Connect & Collect")
                             .font(.title)
                             .foregroundColor(.white)
                         
-                        // Disk sayısı bilgisi
+                        // Information about the number of disks
                         Text("You have currently \(completedDisks) disks")
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(.yellow)
@@ -163,7 +164,7 @@ struct ConnectFourView: View {
                     .background(Color.black.edgesIgnoringSafeArea(.all))
                 }
             } else {
-                // Oyun Ekranı
+                // Game Screen
                 ScrollView {
                     VStack {
                         VStack(spacing: 6) {
@@ -204,7 +205,7 @@ struct ConnectFourView: View {
         }
         .sheet(isPresented: $showCompletionSheet) {
             NavigationView {
-                // Eğer user kazandıysa isWin true, aksi halde false
+                // If user wins, isWin is true; otherwise false
                 TaskCompletion(resultMessage: alertMessage, onContinue: {
                     ContentView()
                 }, isWin: (game.winner == .human))
@@ -289,7 +290,7 @@ struct TaskTableView: View {
     }
 }
 
-// MARK: - ConnectFourHelpView (Help Ekranı)
+// MARK: - ConnectFourHelpView (Help Screen)
 struct ConnectFourHelpView: View {
     @Environment(\.dismiss) var dismiss
     
@@ -333,15 +334,15 @@ struct ConnectFourHelpView: View {
 struct ConnectFourDemoHelpView: View {
     @Environment(\.dismiss) var dismiss
     
-    // Demo için 4x4'lük board
+    // Demo board (4x4)
     @State private var gameDemo = ConnectFourGame()
     @State private var handPosition: CGPoint = .zero
     @State private var showHand = false
     
-    // İkinci yardım sayfasını sheet ile sunmak için state
+    // State for presenting second help page as sheet
     @State private var showSecondHelpSheet = false
     
-    // Sabit değerler (örnek)
+    // Constants for demo layout
     let gridWidth: CGFloat = 160
     let cellSize: CGFloat = 40
     let spacing: CGFloat = 6
@@ -361,7 +362,7 @@ struct ConnectFourDemoHelpView: View {
             }
             .frame(width: gridWidth, height: cellSize * 4 + spacing * 3)
             
-            // El ikonu
+            // Hand icon
             if showHand {
                 Image(systemName: "hand.point.up.left.fill")
                     .resizable()
@@ -372,11 +373,11 @@ struct ConnectFourDemoHelpView: View {
             }
         }
         .onAppear {
-            // Başlangıç konumu
+            // Start position
             handPosition = .zero
             showHand = true
             
-            // 1 saniye sonra ilk insan hamlesi (sütun 1)
+            // After 1s: first human move (column 1)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 let targetPos1 = CGPoint(x: cellSize * 2, y: 20)
                 withAnimation {
@@ -388,12 +389,12 @@ struct ConnectFourDemoHelpView: View {
                 dropTokenDemo(column: 1, for: .human)
             }
             
-            // 3 saniye sonra bilgisayar hamlesi (sütun 2)
+            // After 3.5s: computer move (column 2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 dropTokenDemo(column: 2, for: .computer)
             }
             
-            // 5 saniye sonra ikinci insan hamlesi (sütun 0)
+            // After 6s: second human move (column 0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
                 let targetPos2 = CGPoint(x: cellSize, y: 20)
                 withAnimation {
@@ -405,13 +406,13 @@ struct ConnectFourDemoHelpView: View {
                 dropTokenDemo(column: 0, for: .human)
             }
             
-            // 7 saniye sonra ikinci yardım sayfasını sheet ile açalım
+            // After 8.5s: present second help page
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
                 showSecondHelpSheet = true
             }
         }
         .sheet(isPresented: $showSecondHelpSheet) {
-            // İkinci yardım sayfası (örneğin ConnectFourHelpView)
+            // Second help page (for example ConnectFourHelpView)
             ConnectFourHelpView()
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
@@ -445,20 +446,20 @@ struct TaskCompletion<NextView: View>: View {
                 }
                 
                 VStack(spacing: 10) {
-                    // Sonuç mesajı her zaman ekranda görünür.
+                    // Result message is always visible
                     Text(resultMessage)
                         .font(.headline)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding()
                     
-                    // "Continue" butonuna basıldığında navigate true oluyor.
+                    // When user taps "Close", navigation is triggered
                     Button("Close") {
                         navigate = true
                     }
                     .buttonStyle(ADStandardButtonStyle())
                     
-                    // NavigationLink görünmez; yalnızca "Continue" butonuyla tetiklenir.
+                    // Hidden NavigationLink only activated by the button
                     NavigationLink(destination: onContinue(), isActive: $navigate) {
                         EmptyView()
                     }
@@ -470,5 +471,3 @@ struct TaskCompletion<NextView: View>: View {
         }
     }
 }
-
-

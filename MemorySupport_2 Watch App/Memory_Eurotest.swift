@@ -183,10 +183,6 @@ struct EuroTestGameView: View {
             .padding()
             .background(Color.black.edgesIgnoringSafeArea(.all))
         }
-        // Results sheet
-        .sheet(isPresented: $showResults) {
-            TestResultsView(testResults: testResults)
-        }
         // Caregiver password gate
         .sheet(isPresented: $showPasswordPrompt) {
             ScrollView {

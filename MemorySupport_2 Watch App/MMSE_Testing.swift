@@ -4,19 +4,20 @@
 //
 //  Created by Damla Cinel on 28.02.25.
 //
-
 import SwiftUI
 import AVFoundation
 import CoreML
 
 // MARK: - Data Models
 
+// Represents a single MMSE-like question that can cover multiple modalities:
+// - text input, multiple choice, image prompt, audio prompt (TTS), drawing task.
 struct ExtendedMMSEQuestion: Identifiable {
     let id = UUID()
     
     let questionText: String
     let questionImageName: String?
-    let questionAudioName: String?
+    let questionAudioName: String?  // used as TTS text in this MVP
     let isTextInput: Bool
     let correctTextAnswer: String?
     let choices: [ExtendedChoice]
@@ -47,23 +48,26 @@ struct ExtendedMMSEQuestion: Identifiable {
     }
 }
 
+// Single multiple-choice option; may be text and/or an image.
 struct ExtendedChoice {
     let text: String?
     let imageName: String?
 }
 
+// A data pack: an (audio) memory word + a list of questions.
 struct ExtendedMMSEData {
-    let memoryWord: String       // Memory word (not displayed on screen)
+    let memoryWord: String       // Memory word (played via TTS, not displayed)
     let questions: [ExtendedMMSEQuestion]
 }
 
+// MARK: - Sample Question Packs
 
 // Version A
 var extendedMMSEVersionA: [ExtendedMMSEQuestion] = [
     ExtendedMMSEQuestion(
         questionText: "What is the current year?",
         isTextInput: true,
-        correctTextAnswer: "2025"
+        correctTextAnswer: "2025" // placeholder; in production compute dynamically
     ),
     ExtendedMMSEQuestion(
         questionText: "Listen and choose the correct match",
@@ -107,7 +111,7 @@ var extendedMMSEVersionB: [ExtendedMMSEQuestion] = [
     ExtendedMMSEQuestion(
         questionText: "What country are you in?",
         isTextInput: true,
-        correctTextAnswer: "Washington"
+        correctTextAnswer: "Turkey" // placeholder; could be localized or validated dynamically
     ),
     ExtendedMMSEQuestion(
         questionText: "Listen to the words and choose the correct match.",
@@ -146,7 +150,7 @@ var extendedMMSEVersionC: [ExtendedMMSEQuestion] = [
     ExtendedMMSEQuestion(
         questionText: "What day of the week is it?",
         isTextInput: true,
-        correctTextAnswer: "Long river" // example usage
+        correctTextAnswer: "Monday" // placeholder; may be computed dynamically
     ),
     ExtendedMMSEQuestion(
         questionText: "Listen to words, choose the correct match.",
@@ -185,13 +189,11 @@ let mmseDataA = ExtendedMMSEData(memoryWord: "John Brown", questions: extendedMM
 let mmseDataB = ExtendedMMSEData(memoryWord: "Washington", questions: extendedMMSEVersionB)
 let mmseDataC = ExtendedMMSEData(memoryWord: "Long river", questions: extendedMMSEVersionC)
 
-
-
-// MARK: - ML Model Prediction (unchanged, except for your actual model class name)
-
+// MARK: - ML Model Prediction (placeholder; replace with your real model types)
 func predictShapeWithML(drawnPoints: [CGPoint]) -> String {
     guard drawnPoints.count > 2 else { return "unknown" }
     
+    // Very naive features for MVP; replace with real feature extraction.
     let sumX = drawnPoints.map(\.x).reduce(0, +)
     let sumY = drawnPoints.map(\.y).reduce(0, +)
     let avgX = Double(sumX) / Double(drawnPoints.count)
@@ -199,8 +201,8 @@ func predictShapeWithML(drawnPoints: [CGPoint]) -> String {
     
     do {
         let config = MLModelConfiguration()
-        let model = try ml_model(configuration: config)
-        let input = ml_modelInput(avg_x: avgX, avg_y: avgY)
+        let model = try ml_model(configuration: config)       // <-- your generated CoreML class
+        let input = ml_modelInput(avg_x: avgX, avg_y: avgY)   // <-- your generated input type
         let output = try model.prediction(input: input)
         return output.prediction
     } catch {
@@ -211,11 +213,12 @@ func predictShapeWithML(drawnPoints: [CGPoint]) -> String {
 
 // MARK: - Drawing Canvas
 
+// Simple freehand canvas that collects single-stroke points.
 struct DrawingCanvas: View {
     @Binding var points: [CGPoint]
     
     var body: some View {
-        GeometryReader { geo in
+        GeometryReader { _ in
             ZStack {
                 Color.white
                 Path { path in
@@ -239,17 +242,12 @@ struct DrawingCanvas: View {
 
 // MARK: - DrawingTaskView
 
+// Encapsulates the drawing task and reports the result to parent via onComplete.
 struct DrawingTaskView: View {
     let expectedShape: String
     var onComplete: (Bool, String) -> Void
     
     @State private var drawnPoints: [CGPoint] = []
-    @State private var showResultAlert = false
-    @State private var resultMessage = ""
-    @State private var showCompletionSheet : Bool = false
-    
-    @State private var navigate = false
-    
     
     var body: some View {
         VStack {
@@ -257,10 +255,8 @@ struct DrawingTaskView: View {
                 .frame(width: 150, height: 150)
                 .border(Color.gray, width: 1)
             
-            // Butonlar yan yana: Clear Canvas ve Next
             HStack(spacing: 20) {
                 Button("Clear Canvas") {
-                    // drawnPoints bu view içinde tanımlı olduğu için temizleyebiliriz
                     drawnPoints = []
                 }
                 .buttonStyle(ADStandardButtonStyle())
@@ -269,26 +265,17 @@ struct DrawingTaskView: View {
                     let predicted = predictShapeWithML(drawnPoints: drawnPoints)
                     let isCorrect = (predicted.lowercased() == expectedShape.lowercased())
                     onComplete(isCorrect, predicted)
-                    navigate = true
                 }
                 .buttonStyle(ADStandardButtonStyle())
             }
             .padding(.top, 10)
-            
-            NavigationLink(destination: NavigationView {
-                    TaskCompletionView() {
-                        ContentView()
-                    }
-                        }, isActive: $navigate) {
-                            EmptyView()
-                        }
-                        .hidden()
         }
     }
 }
 
 // MARK: - QuestionAudioView
 
+// Plays the given text once via TTS and then disables itself.
 struct QuestionAudioView: View {
     let audioText: String
     @State private var synthesizer = AVSpeechSynthesizer()
@@ -309,6 +296,7 @@ struct QuestionAudioView: View {
 
 // MARK: - MemoryIntroView
 
+// Plays the memory word once and disables the play button.
 struct MemoryIntroView: View {
     let memoryWord: String
     @State private var synthesizer = AVSpeechSynthesizer()
@@ -333,8 +321,8 @@ struct MemoryIntroView: View {
 // MARK: - MMSEQuizView
 
 struct MMSEQuizView: View {
-    // Combine all data sets
-    private var allVersions = [mmseDataA, mmseDataB, mmseDataC]
+    // Data packs (A/B/C)
+    private let allVersions = [mmseDataA, mmseDataB, mmseDataC]
     private let selectedData: ExtendedMMSEData
     
     @State private var showMemoryIntro = true
@@ -349,17 +337,14 @@ struct MMSEQuizView: View {
     @State private var quizStarted: Bool = false
     @State private var showHelp: Bool = false
     
-    
-    
     init() {
-            self.allVersions = [mmseDataA, mmseDataB, mmseDataC]
-            self.selectedData = allVersions.randomElement() ?? mmseDataA
-        }
+        self.selectedData = allVersions.randomElement() ?? mmseDataA
+    }
     
     var body: some View {
         Group {
             if !quizStarted {
-                // Başlangıç Ekranı: "Start Quiz" ve "Help" butonları, disk bilgisi
+                // Entry screen
                 ScrollView {
                     VStack(spacing: 20) {
                         Text("MMSE Quiz")
@@ -386,7 +371,6 @@ struct MMSEQuizView: View {
                             .buttonStyle(ADStandardButtonStyle())
                         }
                     }
-                    
                     .padding()
                     .background(Color.black.edgesIgnoringSafeArea(.all))
                 }
@@ -400,15 +384,22 @@ struct MMSEQuizView: View {
                     .padding(.top, 20)
                 }
             } else if isQuizComplete {
-                TaskCompletionView{ContentView()}
+                TaskCompletionView { ContentView() }
             } else {
                 quizContent
+                    // Auto-advance when drawing task completes
+                    .onChange(of: drawingTaskPassed) { _, newValue in
+                        guard newValue != nil else { return }
+                        goNextQuestionOrFinish()
+                    }
             }
         }
     }
     
+    // Renders the current question depending on its flags/content.
     var quizContent: some View {
         let currentQuestion = selectedData.questions[currentQuestionIndex]
+        
         return ScrollView {
             VStack {
                 Text(currentQuestion.questionText)
@@ -416,7 +407,7 @@ struct MMSEQuizView: View {
                     .padding()
                     .fixedSize(horizontal: false, vertical: true)
                 
-                // TTS question
+                // TTS question (MVP: use provided text as utterance)
                 if let audioText = currentQuestion.questionAudioName {
                     QuestionAudioView(audioText: audioText)
                         .padding(.bottom, 8)
@@ -428,6 +419,7 @@ struct MMSEQuizView: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                 }
+                
                 // Multiple choice
                 if !currentQuestion.choices.isEmpty {
                     ForEach(0..<currentQuestion.choices.count, id: \.self) { index in
@@ -450,43 +442,49 @@ struct MMSEQuizView: View {
                         .padding(.bottom, 4)
                     }
                 }
+                
                 // Single image question
                 if let imageName = currentQuestion.questionImageName {
                     Image(imageName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
-                    
                 }
+                
                 // Drawing task
                 if currentQuestion.isDrawingTask, let expectedShape = currentQuestion.shapeToDraw {
                     DrawingTaskView(expectedShape: expectedShape) { isCorrect, detected in
+                        // Parent decides what to do with result; here we just mark completion.
                         drawingTaskPassed = isCorrect
                     }
                 }
                 
+                // For non-drawing questions, user advances with "Next"
                 if !currentQuestion.isDrawingTask {
                     Button("Next") {
-                        // Example: check correctness if needed
-                        if currentQuestionIndex < selectedData.questions.count - 1 {
-                            currentQuestionIndex += 1
-                            userInput = ""
-                            drawingTaskPassed = nil
-                            selectedChoiceIndex = nil
-                        } else {
-                            isQuizComplete = true
-                        }
+                        goNextQuestionOrFinish()
                     }
                     .buttonStyle(ADStandardButtonStyle())
                     .padding(.top, 10)
                 }
             }
         }
-        
     }
     
+    // Advances the quiz or finishes it if we're on the last item.
+    private func goNextQuestionOrFinish() {
+        if currentQuestionIndex < selectedData.questions.count - 1 {
+            currentQuestionIndex += 1
+            // reset transient states
+            userInput = ""
+            drawingTaskPassed = nil
+            selectedChoiceIndex = nil
+        } else {
+            isQuizComplete = true
+        }
+    }
     
-    // MARK: - MMSEQuizHelpView (Help Ekranı)
+    // MARK: - MMSEQuizHelpView (Help Screen)
     enum MMSEHelpStep: Int, CaseIterable {
         case listeningPart1
         case listeningPart2
@@ -518,7 +516,6 @@ struct MMSEQuizView: View {
         }
         
         private func goToNextStep() {
-            // Sıradaki adım veya kapatma
             if let next = MMSEHelpStep(rawValue: currentStep.rawValue + 1),
                next.rawValue < MMSEHelpStep.allCases.count {
                 currentStep = next
@@ -529,17 +526,16 @@ struct MMSEQuizView: View {
     }
     
     
-    struct HelpListeningPart1View: View {
-        @State private var hasPlayed: Bool = false
-        @State private var showHand: Bool = false
-        @State private var handOffset: CGSize = CGSize(width: -40, height: -40) // Başlangıç offset'i, butondan uzakta
-        @State private var animateHand: Bool = false
-        let onNext: () -> Void
+struct HelpListeningPart1View: View {
+    @State private var hasPlayed: Bool = false
+    @State private var showHand: Bool = false
+    @State private var handOffset: CGSize = CGSize(width: -40, height: -40)
+    let onNext: () -> Void
         
         var body: some View {
             ScrollView {
                 VStack(spacing: 10) {
-                    Text("For Listening Task, please click on the 'Play Audio' button to listen. Be careful, you have only one chance!")
+                    Text("For Listening Task, tap 'Play Audio' to listen. Be careful, you have only one chance!")
                         .font(.system(size: 14))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -551,25 +547,21 @@ struct MMSEQuizView: View {
                         }
                         .buttonStyle(MultipleChoiceButtonStyle())
                         
-                        // El ikonu: Butonun üzerine doğru animasyonla gelecek
                         if showHand {
                             Image(systemName: "hand.point.up.left.fill")
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.white)
                                 .offset(handOffset)
-                                .transition(.move(edge: .leading))
                         }
                     }
                     .padding(.top, 20)
                     
                     Spacer()
                     
-                    Button("Next") {
-                        onNext()
-                    }
-                    .padding(.bottom, 20)
-                    .buttonStyle(ADStandardButtonStyle())
+                    Button("Next") { onNext() }
+                        .padding(.bottom, 20)
+                        .buttonStyle(ADStandardButtonStyle())
                 }
                 .padding()
                 .background(Color.black.edgesIgnoringSafeArea(.all))
@@ -581,29 +573,25 @@ struct MMSEQuizView: View {
                         showHand = true
                         handOffset = .zero
                     }
-                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         hasPlayed = true
                     }
                 }
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     withAnimation(.easeInOut(duration: 1)) {
-                        // "Next" butonunun konumuna göre offset ayarlayın (deneme-yanılma ile)
-                        // Örneğin, (0, 150) alt tarafa hareket etsin
-                        handOffset = CGSize(width: 0, height: 110)
+                        handOffset = CGSize(width: 0, height: 110) // move toward Next (tune if needed)
                     }
                 }
             }
         }
     }
     
-    struct HelpListeningPart2View: View {
-        let onNext: () -> Void
-        @State private var showHandIcon = false
-        @State private var handOffset: CGSize = CGSize(width: -60, height: -60)
-        @State private var hasPlayed: Bool = false
-        @State private var selectedOption: Int? = nil
+struct HelpListeningPart2View: View {
+    let onNext: () -> Void
+    @State private var showHandIcon = false
+    @State private var handOffset: CGSize = CGSize(width: -60, height: -60)
+    @State private var hasPlayed: Bool = false
+    @State private var selectedOption: Int? = nil
         
         var body: some View {
             ScrollView {
@@ -614,11 +602,8 @@ struct MMSEQuizView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 10)
                     
-                    // "Play Audio" butonu + el ikonu (aynı ZStack içerisinde)
                     ZStack {
-                        Button(action: {
-                            // Gerçek kullanımda audio oynatma burada gerçekleşir.
-                        }) {
+                        Button(action: {}) {
                             Text(hasPlayed ? "Played" : "Play Audio")
                         }
                         .buttonStyle(MultipleChoiceButtonStyle())
@@ -633,31 +618,24 @@ struct MMSEQuizView: View {
                         }
                     }
                     
-                    // Multiple Choice seçenekleri
                     VStack(spacing: 10) {
                         multipleChoiceButton("Option 1", tag: 1)
                         multipleChoiceButton("Option 2", tag: 2)
                         multipleChoiceButton("Option 3", tag: 3)
                     }
                     
-                    Button("Next") {
-                        onNext()
-                    }
-                    .buttonStyle(ADStandardButtonStyle())
+                    Button("Next") { onNext() }
+                        .buttonStyle(ADStandardButtonStyle())
                 }
                 .padding()
                 .background(Color.black.edgesIgnoringSafeArea(.all))
                 .navigationTitle("Help")
             }
-            .onAppear {
-                runDemo()
-            }
+            .onAppear { runDemo() }
         }
         
         private func multipleChoiceButton(_ text: String, tag: Int) -> some View {
-            Button(action: {
-                selectedOption = tag
-            }) {
+            Button(action: { selectedOption = tag }) {
                 Text(text)
                     .foregroundColor(.white)
                     .padding(8)
@@ -669,66 +647,44 @@ struct MMSEQuizView: View {
         }
         
         private func runDemo() {
-            // Adım 1: 1 saniye sonra el ikonu "Play Audio" butonunun ortasına gelir.
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 withAnimation(.easeInOut(duration: 1.0)) {
                     showHandIcon = true
-                    handOffset = .zero  // "Play Audio" butonunun konumuna yakın
+                    handOffset = .zero
                 }
             }
-            
-            // Adım 2: 1.5 saniye sonra, metin "Play Audio" yerine "Played" olur.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                hasPlayed = true
-            }
-            
-            // Adım 3: 3 saniye sonra el ikonu, örneğin "Option 2" butonuna hareket eder.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { hasPlayed = true }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation(.easeInOut(duration: 1.0)) {
-                    // Buradaki offset değerini, "Option 2" butonunun konumuna göre ayarlayın.
-                    handOffset = CGSize(width: 0, height: 150)
-                }
+                withAnimation(.easeInOut(duration: 1.0)) { handOffset = CGSize(width: 0, height: 150) }
                 selectedOption = 2
             }
-            
-            // Adım 4: 4.5 saniye sonra el ikonu "Next" butonuna gider.
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                withAnimation(.easeInOut(duration: 1.0)) {
-                    // "Next" butonunun konumuna göre offset ayarlayın.
-                    handOffset = CGSize(width: 0, height: 300)
-                }
+                withAnimation(.easeInOut(duration: 1.0)) { handOffset = CGSize(width: 0, height: 300) }
             }
         }
     }
     
-    struct HelpTextInputPartView: View {
-        let onNext: () -> Void
-        // El ikonu görünümü ve konumunu yönetmek için state
-        @State private var showHandIcon = false
-        @State private var handOffset: CGSize = CGSize(width: -50, height: -50)
-        
-        // Metin girişi (demo amaçlı - gerçek input kilitli veya kısıtlı olabilir)
-        @State private var userInput = ""
+struct HelpTextInputPartView: View {
+    let onNext: () -> Void
+    @State private var showHandIcon = false
+    @State private var handOffset: CGSize = CGSize(width: -50, height: -50)
+    @State private var userInput = ""
         
         var body: some View {
             ScrollView {
                 VStack(spacing: 10) {
-                    // Üstte açıklama
-                    Text("For text input questions, tap the field to speak your answer, the system will write it down for you.")
+                    Text("For text input questions, tap the field to speak your answer. The system will write it down for you.")
                         .font(.system(size: 14))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 10)
                     
-                    // TextField + El ikonu
                     ZStack(alignment: .leading) {
-                        // Metin girişi
                         TextField("Enter your answer", text: $userInput)
                             .textFieldStyle(DefaultTextFieldStyle())
-                            .disabled(true) // Demo için pasif; gerçek kullanımda değişebilir.
+                            .disabled(true) // demo only
                             .frame(width: 180)
                         
-                        // El ikonu
                         if showHandIcon {
                             Image(systemName: "hand.point.up.left.fill")
                                 .resizable()
@@ -741,63 +697,46 @@ struct MMSEQuizView: View {
                     
                     Spacer()
                     
-                    // "Next" butonu
-                    Button("Next") {
-                        onNext()
-                    }
-                    .buttonStyle(ADStandardButtonStyle())
+                    Button("Next") { onNext() }
+                        .buttonStyle(ADStandardButtonStyle())
                 }
                 .padding()
                 .background(Color.black.edgesIgnoringSafeArea(.all))
                 .navigationTitle("Help")
             }
             .onAppear {
-                runDemo()
-            }
-        }
-        
-        private func runDemo() {
-            // 1) 1 saniye sonra el ikonu TextField’in üzerine animasyonla gelir.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation(.easeInOut(duration: 1)) {
-                    showHandIcon = true
-                    handOffset = .zero  // TextField'in konumuna yakın
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation(.easeInOut(duration: 1)) {
+                        showHandIcon = true
+                        handOffset = .zero
+                    }
                 }
-            }
-            // 2) 3 saniye sonra el ikonu "Next" butonuna doğru animasyonla kayar.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation(.easeInOut(duration: 1)) {
-                    // Bu offset değerini, "Next" butonunun konumuna göre ayarlayın.
-                    handOffset = CGSize(width: 65, height: 100)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    withAnimation(.easeInOut(duration: 1)) { handOffset = CGSize(width: 65, height: 100) }
                 }
             }
         }
     }
     
-    struct HelpDrawingPartView: View {
-        let onNext: () -> Void
-        // El ikonu konumu ve görünürlüğü
-        @State private var showHandIcon = false
-        @State private var handOffset: CGSize = CGSize(width: -60, height: -60)
+struct HelpDrawingPartView: View {
+    let onNext: () -> Void
+    @State private var showHandIcon = false
+    @State private var handOffset: CGSize = CGSize(width: -60, height: -60)
         
         var body: some View {
             ScrollView {
                 VStack(spacing: 20) {
-                    // Açıklama metni
-                    Text("For drawing tasks, use the canvas to draw the shape requested. Please keep in mind that you should not leave your fingertip from the device while drawing.")
+                    Text("For drawing tasks, use the canvas to draw the requested shape in a single stroke (do not lift your finger).")
                         .font(.system(size: 14))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 10)
                     
-                    // Basit bir beyaz "canvas" simülasyonu
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
                             .frame(width: 150, height: 150)
                         
-                        // El ikonu, bu canvas üzerine doğru hareket ederek
-                        // kullanıcının buraya çizmesi gerektiğini simüle eder
                         if showHandIcon {
                             Image(systemName: "hand.point.up.left.fill")
                                 .resizable()
@@ -810,38 +749,27 @@ struct MMSEQuizView: View {
                     
                     Spacer()
                     
-                    // "Next" butonu
-                    Button("Next") {
-                        onNext()
-                    }
-                    .buttonStyle(ADStandardButtonStyle())
+                    Button("Next") { onNext() }
+                        .buttonStyle(ADStandardButtonStyle())
                 }
                 .padding()
                 .background(Color.black.edgesIgnoringSafeArea(.all))
                 .navigationTitle("Help")
             }
             .onAppear {
-                runDemo()
-            }
-        }
-        
-        private func runDemo() {
-            // 1 saniye sonra el ikonu görünür ve canvas ortasına doğru animasyonla ilerler
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation(.easeInOut(duration: 1.0)) {
-                    showHandIcon = true
-                    handOffset = .zero
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation(.easeInOut(duration: 1.0)) {
+                        showHandIcon = true
+                        handOffset = .zero
+                    }
                 }
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation(.easeInOut(duration: 1.0)) {
-                    showHandIcon = true
-                    handOffset = CGSize(width: 0, height: 300)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation(.easeInOut(duration: 1.0)) {
+                        handOffset = CGSize(width: 0, height: 300)
+                    }
                 }
             }
         }
     }
 }
-
 
